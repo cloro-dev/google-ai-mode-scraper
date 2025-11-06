@@ -4,7 +4,7 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-Cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [AI Mode Scraper](https://cloro.dev/aimode/) by cloro enables developers to programmatically interact with Google AI Mode and automatically collect AI-powered search responses along with structured metadata. Instead of manual data collection, you can retrieve results as parsed JSON, raw HTML, or other formats for seamless integration into your workflows.
+The [AI Mode Scraper](https://cloro.dev/ai-mode/) by cloro enables developers to programmatically interact with Google AI Mode and automatically collect AI-powered search responses along with structured metadata. Instead of manual data collection, you can retrieve results as parsed JSON, raw HTML, or other formats for seamless integration into your workflows.
 
 You can use cloro's AI Mode Scraper for general knowledge queries, workflow optimization, and technical guidance. It handles dynamic AI-generated content, supports real-time extraction, and eliminates the need to manage authentication, sessions, or anti-bot systems.
 
@@ -200,7 +200,7 @@ AI Mode excels at general knowledge questions, technical inquiries, workflow opt
 For detailed documentation, advanced features, and integration guides, visit:
 
 - **API documentation:** [docs.cloro.dev](https://docs.cloro.dev)
-- **AI Mode scraper page:** [cloro.dev/aimode](https://cloro.dev/aimode/)
+- **AI Mode scraper page:** [cloro.dev/ai-mode](https://cloro.dev/ai-mode/)
 
 ## Contact us
 
