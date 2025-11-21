@@ -1,10 +1,10 @@
-# Google AI Mode scraper
+# Google AI Mode Scraper
 
-[![AI Mode scraper by cloro](https://github.com/cloro-dev/google-ai-mode-scraper/blob/main/aimode-scraper-hero-image.png)](https://cloro.dev/aimode/?utm_source=github)
+[![Google AI Mode scraper by cloro](https://github.com/cloro-dev/google-ai-mode-scraper/blob/main/aimode-scraper-hero-image.png)](https://cloro.dev/ai-mode/?utm_source=github)
 
-[![cloro](https://img.shields.io/badge/Powered%20by-Cloro-blue?style=for-the-badge)](https://cloro.dev/)
+[![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [AI Mode scraper](https://cloro.dev/ai-mode/) by cloro enables developers to programmatically interact with Google AI Mode and automatically collect AI-powered search responses along with structured metadata. Instead of manual data collection, you can retrieve results as parsed JSON, raw HTML, or other formats for seamless integration into your workflows.
+The [Google AI Mode Scraper](https://cloro.dev/ai-mode/) by cloro enables developers to programmatically interact with Google AI Mode and automatically collect AI-powered search responses along with structured metadata. Instead of manual data collection, you can retrieve results as parsed JSON, raw HTML, or other formats for seamless integration into your workflows.
 
 You can use cloro's AI Mode Scraper for general knowledge queries, workflow optimization, and technical guidance. It handles dynamic AI-generated content, supports real-time extraction, and eliminates the need to manage authentication, sessions, or anti-bot systems.
 
@@ -93,6 +93,7 @@ axios
 | `prompt`\*         | The search query or question (1-10,000 characters)                          | –             |
 | `country`          | Optional country/region code for localized results (e.g., `US`, `GB`, `DE`) | `US`          |
 | `include.markdown` | Include response in Markdown format when set to true                        | `false`       |
+| `include.html`     | Include URL to full HTML response when set to true (URL expires after 48h)  | `false`       |
 
 \* Mandatory parameters
 
@@ -123,7 +124,7 @@ The AI Mode Scraper API returns a structured JSON object containing AI Mode's in
         "description": "Industry insights on machine learning adoption and implementation strategies..."
       }
     ],
-    "html": "<div>The latest AI and ML trends for 2025 include multimodal AI models...</div>",
+    "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 48 hours
     "markdown": "**The latest AI and ML trends for 2025** include multimodal AI models, edge computing integration..."
   }
 }
@@ -200,7 +201,16 @@ AI Mode excels at general knowledge questions, technical inquiries, workflow opt
 For detailed documentation, advanced features, and integration guides, visit:
 
 - **API documentation:** [docs.cloro.dev](https://docs.cloro.dev)
-- **AI Mode scraper page:** [cloro.dev/ai-mode](https://cloro.dev/ai-mode/)
+- **AI Mode scraper page:** [cloro.dev/aimode](https://cloro.dev/ai-mode/)
+
+## Other available scrapers
+
+- **[AI Mode](https://cloro.dev/ai-mode/)** - Extracts structured data from Google AI Mode for general knowledge queries, workflow optimization, and technical guidance.
+- **[AI Overview](https://cloro.dev/ai-overview/)** - Extracts structured data from Google AI Overview for comprehensive search result analysis and AI-curated insights.
+- **[ChatGPT](https://cloro.dev/chatgpt/)** - Extracts structured data from ChatGPT with advanced features including shopping cards, raw response data, and query fan-out.
+- **[Copilot](https://cloro.dev/copilot/)** - Extracts structured data from Microsoft Copilot for development tools, Microsoft ecosystem research, and enterprise-focused queries.
+- **[Google](https://cloro.dev/google-search/)** - Extracts structured data from Google Search results, including organic results, People Also Ask questions, related searches, and optional AI Overview data.
+- **[Perplexity](https://cloro.dev/perplexity/)** - Extracts comprehensive structured data from Perplexity AI with real-time web sources, automatically detecting and extracting rich data objects.
 
 ## Contact us
 
@@ -208,4 +218,4 @@ If you have questions or need support, reach out to us on [our contact page](htt
 
 ---
 
-_Built with ❤️ by the cloro team_
+Built with ❤️ by the cloro team
