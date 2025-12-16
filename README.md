@@ -124,6 +124,30 @@ The AI Mode Scraper API returns a structured JSON object containing AI Mode's in
         "description": "Industry insights on machine learning adoption and implementation strategies..."
       }
     ],
+    "places": [
+      {
+        "title": "AI Research Institute",
+        "rating": 4.7,
+        "reviews": 1250,
+        "price": "$$$",
+        "status": "Open now",
+        "address": "123 Tech Street, San Francisco, CA",
+        "place_id": "ChIJrTLr-GyuEmsRBfyf1GDs-kY",
+        "link": "https://www.google.com/search?q=AI+Research+Institute&kponly&kgmid=ChIJrTLr-GyuEmsRBfyf1GDs-kY",
+        "description": "Leading research institute for artificial intelligence and machine learning"
+      }
+    ],
+    "shopping_cards": [
+      {
+        "title": "AI and Machine Learning Textbook",
+        "price": { "value": 89.99, "currency": "$" },
+        "store": "Amazon",
+        "rating": 4.5,
+        "reviews": "1.2k",
+        "thumbnail": "https://example.com/book-cover.jpg",
+        "product_link": "https://www.google.com/example"
+      }
+    ],
     "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 48 hours
     "markdown": "**The latest AI and ML trends for 2025** include multimodal AI models, edge computing integration..."
   }
@@ -141,6 +165,8 @@ Google AI Mode provides advanced search capabilities with intelligent understand
 - **Workflow optimization**: Practical advice for improving processes and productivity
 - **Current information**: Access to up-to-date knowledge and recent developments
 - **Contextual understanding**: Ability to understand complex queries and provide relevant, detailed responses
+- **Location data extraction**: Automatic extraction of places with ratings, reviews, addresses, and operating status
+- **Shopping product information**: Structured product data including pricing, store details, ratings, and reviews
 
 ### Sources array structure
 
@@ -152,6 +178,37 @@ Each source in the `result.sources` array contains:
 | `url`         | string  | Direct URL to the source content              |
 | `label`       | string  | Source name or publication                    |
 | `description` | string  | Brief description of what the source contains |
+
+### Places array structure
+
+When location data is present in the AI Mode response, the `result.places` array contains structured place information:
+
+| Field         | Type    | Description                          |
+| ------------- | ------- | ------------------------------------ |
+| `title`       | string  | Place name                           |
+| `rating`      | number  | Star rating (0-5)                    |
+| `reviews`     | integer | Number of reviews                    |
+| `price`       | string  | Price level (e.g., "$", "$$", "$$$") |
+| `status`      | string  | Operating status (e.g., "Open now")  |
+| `address`     | string  | Full address                         |
+| `thumbnail`   | string  | Place thumbnail image URL            |
+| `place_id`    | string  | Google Places ID                     |
+| `link`        | string  | Google search URL for the place      |
+| `description` | string  | Place description                    |
+
+### Shopping cards array structure
+
+When shopping information is present in the AI Mode response, the `result.shopping_cards` array contains structured product information:
+
+| Field          | Type   | Description                                    |
+| -------------- | ------ | ---------------------------------------------- |
+| `title`        | string | Product title                                  |
+| `price`        | object | Structured pricing with `value` and `currency` |
+| `store`        | string | Merchant/store name                            |
+| `rating`       | number | Product rating                                 |
+| `reviews`      | string | Review count (e.g., "1.2k")                    |
+| `thumbnail`    | string | Product image URL                              |
+| `product_link` | string | Direct product URL                             |
 
 ## Practical AI Mode scraper use cases
 
