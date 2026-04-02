@@ -92,8 +92,9 @@ axios
 | ------------------ | --------------------------------------------------------------------------- | ------------- |
 | `prompt`\*         | The search query or question (1-10,000 characters)                          | –             |
 | `country`          | Optional country/region code for localized results (e.g., `US`, `GB`, `DE`) | `US`          |
+| `device`           | Device type for search results (`desktop` or `mobile`)                      | `desktop`     |
 | `include.markdown` | Include response in Markdown format when set to true                        | `false`       |
-| `include.html`     | Include URL to full HTML response when set to true (URL expires after 48h)  | `false`       |
+| `include.html`     | Include URL to full HTML response when set to true (URL expires after 24h)  | `false`       |
 
 \* Mandatory parameters
 
@@ -148,7 +149,7 @@ The AI Mode Scraper API returns a structured JSON object containing AI Mode's in
         "product_link": "https://www.google.com/example"
       }
     ],
-    "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 48 hours
+    "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 24 hours
     "markdown": "**The latest AI and ML trends for 2025** include multimodal AI models, edge computing integration..."
   }
 }
@@ -243,7 +244,7 @@ cloro's AI Mode endpoint provides reliable access to Google AI Mode's intelligen
 
 ### What's the recommended timeout for requests?
 
-We recommend setting a timeout of 30-60 seconds for initial requests and 30-45 seconds for retries. Our system handles automatic retries, but implementing your own retry logic with these timeouts provides the best balance between reliability and responsiveness.
+We don't recommend putting any timeout, given that our system retries automatically. We recommend setting up a retry mechanism in case of failure.
 
 ### Does the API support different countries?
 
@@ -257,22 +258,24 @@ AI Mode excels at general knowledge questions, technical inquiries, workflow opt
 
 For detailed documentation, advanced features, and integration guides, visit:
 
-- **API documentation:** [docs.cloro.dev](https://docs.cloro.dev)
-- **AI Mode scraper page:** [cloro.dev/aimode](https://cloro.dev/ai-mode/)
+- **API documentation:** [docs.cloro.dev](https://docs.cloro.dev/)
+- **AI Mode scraper page:** [cloro.dev/ai-mode](https://cloro.dev/ai-mode/)
 
 ## Other available scrapers
 
 - **[AI Mode](https://cloro.dev/ai-mode/)** - Extracts structured data from Google AI Mode for general knowledge queries, workflow optimization, and technical guidance.
 - **[AI Overview](https://cloro.dev/ai-overview/)** - Extracts structured data from Google AI Overview for comprehensive search result analysis and AI-curated insights.
-- **[Gemini](https://cloro.dev/gemini/)** - Extracts structured data from Google Gemini for complex reasoning, content generation, and source confidence scoring.
 - **[ChatGPT](https://cloro.dev/chatgpt/)** - Extracts structured data from ChatGPT with advanced features including shopping cards, raw response data, and query fan-out.
 - **[Copilot](https://cloro.dev/copilot/)** - Extracts structured data from Microsoft Copilot for development tools, Microsoft ecosystem research, and enterprise-focused queries.
-- **[Google](https://cloro.dev/google-search/)** - Extracts structured data from Google Search results, including organic results, People Also Ask questions, related searches, and optional AI Overview data.
+- **[Gemini](https://cloro.dev/gemini/)** - Extracts structured data from Google Gemini for complex reasoning, content generation, and source confidence scoring.
+- **[Google Search](https://cloro.dev/google-search/)** - Extracts structured data from Google Search results, including organic results, People Also Ask questions, related searches, and optional AI Overview data.
+- **[Google News](https://cloro.dev/google-news/)** - Extracts structured news articles from Google News with titles, snippets, sources, dates, and thumbnail images for news monitoring and media tracking.
+- **[Grok](https://cloro.dev/grok/)** - Extracts structured data from Grok for current events, news tracking, and real-time information gathering.
 - **[Perplexity](https://cloro.dev/perplexity/)** - Extracts comprehensive structured data from Perplexity AI with real-time web sources, automatically detecting and extracting rich data objects.
 
 ## Contact us
 
-If you have questions or need support, reach out to us on [our contact page](https://cloro.dev/contact).
+If you have questions or need support, reach out to us at [support@cloro.dev](mailto:support@cloro.dev).
 
 ---
 
