@@ -1,12 +1,28 @@
-# Google AI Mode Scraper
+# Google AI Mode Scraper API — Citation Pills, Place Cards & Shopping Data
 
 [![Google AI Mode scraper by cloro](https://github.com/cloro-dev/google-ai-mode-scraper/blob/main/aimode-scraper-hero-image.png)](https://cloro.dev/ai-mode/?utm_source=github)
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [Google AI Mode Scraper](https://cloro.dev/ai-mode/) by cloro lets developers programmatically interact with Google AI Mode and collect AI search responses with structured metadata. You can retrieve results as parsed JSON, raw HTML, or other formats for integration into your workflows.
+Scrape Google AI Mode responses via API. Returns parsed JSON with the full text and markdown, **citation pills**, **place cards** (business/location data), **shopping data**, and Google's internal reasoning. Python, cURL, and Node.js examples below.
 
-You can use cloro's AI Mode Scraper for general knowledge queries, workflow optimization, and technical guidance. It handles dynamic AI-generated content, supports real-time extraction, and removes the need to manage authentication, sessions, or anti-bot systems.
+Built for developers doing AI brand monitoring on Google AI Mode, local-SEO monitoring via place cards, e-commerce/shopping tracking, and workflow-guidance research — without managing CAPTCHAs, rotating proxies, session state, or Google's anti-bot defenses.
+
+## Quick start
+
+1. Get an API key at [cloro.dev](https://cloro.dev/?utm_source=github&utm_medium=readme).
+2. Send a request:
+
+   ```bash
+   curl -X POST https://api.cloro.dev/v1/monitor/aimode \
+     -H "Authorization: Bearer YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"prompt": "best coffee shops in downtown Austin"}'
+   ```
+
+3. Parse the returned JSON — `result.text`, `result.markdown`, `result.citationPills[]`, `result.placeCards[]`.
+
+Full examples in Python, cURL, and Node.js below.
 
 ## How it works
 
@@ -420,7 +436,7 @@ For detailed documentation, advanced features, and integration guides, visit:
 
 ## Contact us
 
-If you have questions or need support, reach out to us at [support@cloro.dev](mailto:support@cloro.dev).
+If you have questions or need support, join our community at [r/cloroapi](https://www.reddit.com/r/cloroapi/).
 
 ---
 
