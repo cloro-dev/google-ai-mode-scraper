@@ -53,7 +53,7 @@ Node.js and async/webhook examples are in the [endpoint documentation](https://c
 | Parameter | Description | Default |
 | --- | --- | --- |
 | `prompt`\* | The search query or question (1-10,000 characters) | – |
-| `country` | Country code for localized results (`US`, `GB`, `DE`) | `US` |
+| `country`\* | Country code for localized results (`US`, `GB`, `DE`). Required unless you send `gl` | – |
 | `location` | [Google canonical location name](https://developers.google.com/google-ads/api/reference/data/geotargets) for geo-targeting. Mutually exclusive with `uule` | – |
 | `uule` | Pre-encoded Google UULE string. Mutually exclusive with `location` | – |
 | `device` | `desktop` or `mobile` | `desktop` |
@@ -77,23 +77,25 @@ Node.js and async/webhook examples are in the [endpoint documentation](https://c
         "description": "Analysis of emerging AI technologies..."
       }
     ],
-    "citationPills": [{ "citationPillId": "a1b2", "label": "AI Research Institute", "url": "https://example.com/ai-trends", "domain": "example.com" }],
+    "citationPills": [{ "citationPillId": 1, "label": "AI Research Institute", "url": "https://example.com/ai-trends", "domain": "example.com", "position": 1 }],
     "places": [{ "title": "Gion District", "rating": 4.6, "reviews": 2900, "type": "Tourist attraction", "priceLevel": "$$", "status": "Open now" }],
-    "shoppingCards": [{ "title": "AI and Machine Learning Textbook", "price": { "value": 89.99, "currency": "$" }, "store": "Amazon", "rating": 4.5 }],
+    "shoppingCards": [{ "title": "AI and Machine Learning Textbook", "price": { "value": 89.99, "currency": "$", "raw": "$89.99" }, "store": "Amazon", "rating": 4.5 }],
     "markdown": "**The latest AI and ML trends** include multimodal AI models...[AI Research Institute](https://example.com/ai-trends)"
   }
 }
 ```
 
-Seven arrays come back alongside `text` and `markdown`:
+Alongside `text` and `markdown`:
 
 1. **`sources`** — every cited URL with position, label and description.
 2. **`citationPills`** — the inline pill chips. One entry per source, sharing a `citationPillId` when a pill cites several; group by that id to recover pill structure.
 3. **`map`** — GPS-enriched map results with coordinates, rating, reviews, address and operating status.
 4. **`places`** — inline place cards with rating, reviews, price level and status.
 5. **`shoppingCards`** — product carousels with price, old price, store, rating and reviews.
-6. **`ads`** — sponsored sections parsed into product, pricing and store fields.
-7. **`inlineProducts`** — product cards embedded in the answer text, separate from the carousels.
+6. **`inlineProducts`** — product cards embedded in the answer text, separate from the carousels.
+7. **`videos`** — video cards embedded in the answer.
+8. **`ads`** — an object holding the sponsored section's title and an `ads` array with product, pricing and store fields.
+9. **`productResults`** — merchant offers per product, only with `include.expandProducts` (a paid add-on).
 
 Full field-level schemas: [citation pills](https://cloro.dev/docs/api-reference/endpoint/aimode/citation-pills), [sources](https://cloro.dev/docs/api-reference/endpoint/aimode/sources), and the [endpoint reference](https://cloro.dev/docs/api-reference/endpoint/monitor-aimode).
 
@@ -116,7 +118,7 @@ They are different content systems on the same SERP. Measured across 1.3 million
 
 ### What is the recommended timeout?
 
-60 seconds. AI Mode streams its answer, so a response can take several seconds longer than a standard SERP fetch. Use the async endpoint for batch workloads.
+At least 5 minutes (300 seconds), because cloro retries failed attempts server-side before it answers ([retries and cancellation](https://cloro.dev/docs/guides/error-handling#retries-and-cancellation)). Use the async endpoint for batch workloads.
 
 ### Does the API support geo-targeting?
 
@@ -133,4 +135,4 @@ Yes. `country` for national results, or `location` and `uule` for city-level pre
 
 ## Contact us
 
-Questions or support: [r/cloroapi](https://www.reddit.com/r/cloroapi/).
+Questions or support: [ask the docs AI assistant](https://cloro.dev/docs/?assistant).
