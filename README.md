@@ -95,7 +95,8 @@ Alongside `text` and `markdown`:
 6. **`inlineProducts`** — product cards embedded in the answer text, separate from the carousels.
 7. **`videos`** — video cards embedded in the answer.
 8. **`ads`** — an object holding the sponsored section's title and an `ads` array with product, pricing and store fields.
-9. **`productResults`** — merchant offers per product, only with `include.expandProducts` (a paid add-on).
+
+Shopping cards and inline products carry a `productResultToken`. Send it to `POST /v1/monitor/google/product` within five minutes for the merchant offers.
 
 Full field-level schemas: [citation pills](https://cloro.dev/docs/api-reference/endpoint/aimode/citation-pills), [sources](https://cloro.dev/docs/api-reference/endpoint/aimode/sources), and the [endpoint reference](https://cloro.dev/docs/api-reference/endpoint/monitor-aimode).
 
