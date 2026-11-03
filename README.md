@@ -4,9 +4,9 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [Google AI Mode scraper](https://cloro.dev/ai-mode/?utm_source=github) by cloro returns AI Mode answers as structured JSON: the full text and markdown, cited sources, citation pills, place cards, shopping data and ads. One POST request, no browser to run.
+The [Google AI Mode scraper](https://cloro.dev/ai-mode/?utm_source=github) by cloro is an API that returns Google AI Mode results as structured JSON: the full text and markdown, cited sources, citation pills, place cards, shopping data and ads. One POST request, no browser to run.
 
-## How do you scrape Google AI Mode?
+## How do you scrape Google AI Mode results?
 
 1. Get an API key at [cloro.dev](https://cloro.dev/?utm_source=github&utm_medium=readme).
 2. POST a prompt to `https://api.cloro.dev/v1/monitor/aimode`.
@@ -87,14 +87,14 @@ Node.js and async/webhook examples are in the [endpoint documentation](https://c
 
 Alongside `text` and `markdown`:
 
-1. **`sources`** — every cited URL with position, label and description.
-2. **`citationPills`** — the inline pill chips. One entry per source, sharing a `citationPillId` when a pill cites several; group by that id to recover pill structure.
-3. **`map`** — GPS-enriched map results with coordinates, rating, reviews, address and operating status.
-4. **`places`** — inline place cards with rating, reviews, price level and status.
-5. **`shoppingCards`** — product carousels with price, old price, store, rating and reviews.
-6. **`inlineProducts`** — product cards embedded in the answer text, separate from the carousels.
-7. **`videos`** — video cards embedded in the answer.
-8. **`ads`** — an object holding the sponsored section's title and an `ads` array with product, pricing and store fields.
+1. **`sources`**: every cited URL with position, label and description.
+2. **`citationPills`**: the inline pill chips. One entry per source, sharing a `citationPillId` when a pill cites several; group by that id to recover pill structure.
+3. **`map`**: GPS-enriched map results with coordinates, rating, reviews, address and operating status.
+4. **`places`**: inline place cards with rating, reviews, price level and status.
+5. **`shoppingCards`**: product carousels with price, old price, store, rating and reviews.
+6. **`inlineProducts`**: product cards embedded in the answer text, separate from the carousels.
+7. **`videos`**: video cards embedded in the answer.
+8. **`ads`**: an object holding the sponsored section's title and an `ads` array with product, pricing and store fields.
 
 Shopping cards and inline products carry a `productResultToken`. Send it to `POST /v1/monitor/google/product` within five minutes for the merchant offers.
 
@@ -102,10 +102,10 @@ Full field-level schemas: [citation pills](https://cloro.dev/docs/api-reference/
 
 ## Use cases
 
-- **AI brand monitoring** — track whether AI Mode names your brand and which sources it cites.
-- **Local SEO** — read place cards for a specific city using `location` or `uule`.
-- **Shopping and price tracking** — pull the product carousels and inline product cards.
-- **Citation research** — study which domains AI Mode reaches for on a query class.
+- **AI brand monitoring**: track whether AI Mode names your brand and which sources it cites.
+- **Local SEO**: read place cards for a specific city using `location` or `uule`.
+- **Shopping and price tracking**: pull the product carousels and inline product cards.
+- **Citation research**: study which domains AI Mode reaches for on a query class.
 
 ## FAQ
 
@@ -116,6 +116,10 @@ cloro returns publicly visible search results, the same page a signed-out user s
 ### How is AI Mode different from AI Overview?
 
 They are different content systems on the same SERP. Measured across 1.3 million AI Mode citations, the two cite the same URLs only 13.7% of the time, so scraping one tells you little about the other. See the [AI Overview scraper](https://cloro.dev/ai-overview/) for that surface.
+
+### Can you get the queries behind an AI Mode answer?
+
+No. The AI Mode response has no field for the searches Google ran behind the answer: you get the answer, its `sources` and its `citationPills`. cloro returns the queries behind the answer on Copilot (`searchQueries`), Perplexity (`search_model_queries`) and ChatGPT (`searchQueries`, with `legacy: true`).
 
 ### What is the recommended timeout?
 
