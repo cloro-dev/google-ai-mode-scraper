@@ -119,7 +119,7 @@ They are different content systems on the same SERP. Measured across 1.3 million
 
 ### Can you get the queries behind an AI Mode answer?
 
-No. The AI Mode response has no field for the searches Google ran behind the answer: you get the answer, its `sources` and its `citationPills`. cloro returns the queries behind the answer on Copilot (`searchQueries`), Perplexity (`search_model_queries`) and ChatGPT (`searchQueries`, with `legacy: true`).
+No. The AI Mode response has no field for the searches Google ran behind the answer: you get the answer, its `sources` and its `citationPills`. cloro returns the queries behind the answer on ChatGPT (`searchQueries`, with `legacy: true`).
 
 ### What is the recommended timeout?
 
@@ -136,7 +136,7 @@ Yes. `country` for national results, or `location` and `uule` for city-level pre
 
 ## Other cloro scrapers
 
-[AI Overview](https://cloro.dev/ai-overview/) · [ChatGPT](https://cloro.dev/chatgpt/) · [Copilot](https://cloro.dev/copilot/) · [Gemini](https://cloro.dev/gemini/) · [Google Search](https://cloro.dev/google-search/) · [Google News](https://cloro.dev/google-news/) · [Perplexity](https://cloro.dev/perplexity/)
+[AI Overview](https://cloro.dev/ai-overview/) · [ChatGPT](https://cloro.dev/chatgpt/) · [Gemini](https://cloro.dev/gemini/) · [Google Search](https://cloro.dev/google-search/) · [Google News](https://cloro.dev/google-news/)
 
 ## Contact us
 
